@@ -10,11 +10,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "iosevka:size=10" };
 static const char dmenufont[]       = "iosevka:size=10";
-static const char col_gray1[]       = "#1d2021";
-static const char col_gray2[]       = "#83a598";
-static const char col_gray3[]       = "#ebdbb2";
-static const char col_gray4[]       = "#1d2021";
-static const char col_cyan[]        = "#b8bb26";
+static const char col_gray1[]       = "#101010";
+static const char col_gray2[]       = "#868686";
+static const char col_gray3[]       = "#f7f7f7";
+static const char col_gray4[]       = "#101010";
+static const char col_cyan[]        = "#a0a0a0";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
