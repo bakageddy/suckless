@@ -66,9 +66,9 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	{ datetime, "[%s]", "%F %T" },
-	{ wifi_perc, "[LAN: %s]", "enp2s0"},
+	{ wifi_perc, "[LAN: %s]", "wlp3s0"},
 	{ cpu_perc,  "[CPU: %s]", NULL},
 	{ ram_perc, "[RAM: %s]", NULL},
-	{ netspeed_rx, "[RECV: %s]", "enp2s0"},
-	// { run_command, "[BAT %s]",        "~/.software/scripts/elektric_script"}
+	{ netspeed_rx, "[RECV: %s]", "wlp3s0"},
+	{ run_command, "[BAT %s]",        "~/.software/scripts/elektric_script"}
 };

@@ -10,11 +10,23 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "iosevka:size=10" };
 static const char dmenufont[]       = "iosevka:size=10";
-static const char col_gray1[]       = "#1d2021";
-static const char col_gray2[]       = "#83a598";
-static const char col_gray3[]       = "#ebdbb2";
-static const char col_gray4[]       = "#1d2021";
-static const char col_cyan[]        = "#b8bb26";
+
+// Grayscale Dark
+
+static const char col_gray1[]       = "#101010";
+static const char col_gray2[]       = "#e3e3e3";
+static const char col_gray3[]       = "#b9b9b9";
+static const char col_gray4[]       = "#101010";
+static const char col_cyan[]        = "#464646";
+
+// Gruvbox
+
+// static const char col_gray1[]       = "#1d2021";
+// static const char col_gray2[]       = "#83a598";
+// static const char col_gray3[]       = "#ebdbb2";
+// static const char col_gray4[]       = "#1d2021";
+// static const char col_cyan[]        = "#b8bb26";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -67,7 +79,7 @@ static const char *browsercmd[] = {"firefox", NULL};
 static const char *increase_vol[] = {"amixer", "-D", "pulse", "sset", "Master", "5%+", "unmute", NULL};
 static const char *decrease_vol[] = {"amixer", "-D", "pulse", "sset", "Master", "5%-", "unmute", NULL};
 static const char *mute[] = {"amixer", "-D", "pulse", "sset", "Master", "toggle", NULL};
-static const char *screenshotcmd[] = {"maim", "-u", "~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png", NULL};
+static const char *screenshotcmd[] = {"/bin/sh", "-c", "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T.png", NULL};
 static const char *decrease_light[] = {"xbacklight", "-5", NULL};
 static const char *increase_light[] = {"xbacklight", "+5", NULL};
 
