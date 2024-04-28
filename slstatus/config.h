@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1000;
+const unsigned int interval = 5000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -65,10 +65,11 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime, "[%s]", "%F %T" },
-	{ wifi_perc, "[LAN: %s]", "wlp3s0"},
-	{ cpu_perc,  "[CPU: %s]", NULL},
-	{ ram_perc, "[RAM: %s]", NULL},
-	{ netspeed_rx, "[RECV: %s]", "wlp3s0"},
-	{ run_command, "[BAT %s]",        "~/.software/scripts/elektric_script"}
+	{ wifi_essid, "^b#ff5f5f^^c#1d2021^ 󰤥 : %s ^d^ ", "wlp3s0"},
+	{ wifi_perc, "^b#fe8019^^c#1d2021^ 󰤥 : %s ^d^ ", "wlp3s0"},
+	{ run_command,  "^b#fabd2f^^c#1d2021^ 󰕾 : %s ^d^ ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'"},
+	{ ram_perc, "^b#b8bb26^^c#1d2021^ 󰍛 : %s ^d^ ", NULL},
+	{ netspeed_rx, "^b#8ec07c^^c#1d2021^ ⇅: %s ^d^ ", "wlp3s0"},
+	{ run_command, "^b#83a598^^c#1d2021^   %s ^d^ ",        "~/.software/scripts/elektric_script"},
+	{ datetime, "^b#d3869b^^c#1d2021^ %s ^d^ ", "%d-%b-%y %H-%M" },
 };

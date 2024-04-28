@@ -8,33 +8,37 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappx     = 10;        /* gaps between windows */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "iosevka:size=10" };
-static const char dmenufont[]       = "iosevka:size=10";
+static const char *fonts[]          = { "iosevka:size=12" };
+static const char dmenufont[]       = "iosevka:size=12";
 
 // Grayscale Dark
 
-static const char col_gray1[]       = "#101010";
-static const char col_gray2[]       = "#e3e3e3";
-static const char col_gray3[]       = "#b9b9b9";
-static const char col_gray4[]       = "#101010";
-static const char col_cyan[]        = "#464646";
+// static const char col_gray1[]       = "#101010";
+// static const char col_gray2[]       = "#e3e3e3";
+// static const char col_gray3[]       = "#b9b9b9";
+// static const char col_gray4[]       = "#101010";
+// static const char col_cyan[]        = "#464646";
 
-// Gruvbox
+// // Gruvbox
 
-// static const char col_gray1[]       = "#1d2021";
-// static const char col_gray2[]       = "#83a598";
-// static const char col_gray3[]       = "#ebdbb2";
-// static const char col_gray4[]       = "#1d2021";
-// static const char col_cyan[]        = "#b8bb26";
+static const char gruvbox_black[]		= "#1D2021";
+static const char gruvbox_white[]		= "#D4BE98";
+static const char gruvbox_violet[]		= "#D3869B";
+static const char gruvbox_blue[]		= "#83A598";
+static const char gruvbox_cyan[]		= "#8EC07C";
+static const char gruvbox_green[]		= "#B8BB26";
+static const char gruvbox_yellow[]		= "#FABD2F";
+static const char gruvbox_orange[]		= "#FE8019";
+static const char gruvbox_red[]			= "#FF5F5F";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { gruvbox_white, gruvbox_black, gruvbox_black },
+	[SchemeSel]  = { gruvbox_black, gruvbox_cyan,  gruvbox_black},
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { " ", " ", "󰕼 ", " ", " ", " ", "󰘧", " ", " " };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -47,7 +51,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -71,14 +75,14 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "wezterm", NULL };
-static const char *rangercmd[] = {"wezterm", "-e", "ranger", NULL};
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", gruvbox_black, "-nf", gruvbox_white, "-sb", gruvbox_orange, "-sf", gruvbox_black, NULL };
+static const char *termcmd[]  = { "kitty", NULL };
+static const char *rangercmd[] = {"kitty", "-e", "ranger", NULL};
 static const char *zathuracmd[] = {"zathura", NULL};
 static const char *browsercmd[] = {"firefox", NULL};
-static const char *increase_vol[] = {"amixer", "-D", "pulse", "sset", "Master", "5%+", "unmute", NULL};
-static const char *decrease_vol[] = {"amixer", "-D", "pulse", "sset", "Master", "5%-", "unmute", NULL};
-static const char *mute[] = {"amixer", "-D", "pulse", "sset", "Master", "toggle", NULL};
+static const char *increase_vol[] = {"amixer", "set", "Master", "5%+", NULL};
+static const char *decrease_vol[] = {"amixer", "set", "Master", "5%+", NULL};
+static const char *mute[] = {"amixer", "set", "Master", "toggle", NULL};
 static const char *screenshotcmd[] = {"/bin/sh", "-c", "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T.png", NULL};
 static const char *decrease_light[] = {"xbacklight", "-5", NULL};
 static const char *increase_light[] = {"xbacklight", "+5", NULL};
