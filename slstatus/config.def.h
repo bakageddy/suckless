@@ -65,11 +65,10 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ wifi_essid, "^b#ff5f5f^^c#1d2021^ 󰤥 : %s ^d^ ", "wlp3s0"},
-	{ wifi_perc, "^b#fe8019^^c#1d2021^ 󰤥 : %s ^d^ ", "wlp3s0"},
-	{ run_command,  "^b#fabd2f^^c#1d2021^ 󰕾 : %s ^d^ ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'"},
-	{ ram_perc, "^b#b8bb26^^c#1d2021^ 󰍛 : %s ^d^ ", NULL},
-	{ netspeed_rx, "^b#8ec07c^^c#1d2021^ ⇅: %s ^d^ ", "wlp3s0"},
-	{ run_command, "^b#83a598^^c#1d2021^   %s ^d^ ",        "~/.software/scripts/elektric_script"},
-	{ datetime, "^b#d3869b^^c#1d2021^ %s ^d^ ", "%d-%b-%y %H-%M" },
+	{ username, "^b#ff5f5f^^c#1d2021^  : %s ^d^ ", NULL},
+	{ cpu_perc, "^b#fe8019^^c#1d2021^ 🖥 : %s ^d^ ", NULL},
+	{ run_command,  "^b#fabd2f^^c#1d2021^  : %s ^d^ ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'"},
+	{ ram_perc, "^b#b8bb26^^c#1d2021^  : %s ^d^ ", NULL},
+	{ netspeed_rx, "^b#8ec07c^^c#1d2021^ ⇅: %s ^d^ ", "enp2s0"},
+	{ datetime, "^b#83a598^^c#1d2021^ %s ^d^ ", "%d-%b-%y %H-%M" },
 };

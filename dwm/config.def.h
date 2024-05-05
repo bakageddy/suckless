@@ -38,7 +38,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { " ", " ", "󰕼 ", " ", " ", " ", "󰘧", " ", " " };
+static const char *tags[] = { "", "", "", "", "", "", "", " ", " " };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -81,7 +81,7 @@ static const char *rangercmd[] = {"kitty", "-e", "ranger", NULL};
 static const char *zathuracmd[] = {"zathura", NULL};
 static const char *browsercmd[] = {"firefox", NULL};
 static const char *increase_vol[] = {"amixer", "set", "Master", "5%+", NULL};
-static const char *decrease_vol[] = {"amixer", "set", "Master", "5%+", NULL};
+static const char *decrease_vol[] = {"amixer", "set", "Master", "5%-", NULL};
 static const char *mute[] = {"amixer", "set", "Master", "toggle", NULL};
 static const char *screenshotcmd[] = {"/bin/sh", "-c", "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T.png", NULL};
 static const char *decrease_light[] = {"xbacklight", "-5", NULL};
