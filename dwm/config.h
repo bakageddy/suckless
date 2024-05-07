@@ -13,11 +13,9 @@ static const char dmenufont[]       = "iosevka:size=12";
 
 // Grayscale Dark
 
-// static const char col_gray1[]       = "#101010";
-// static const char col_gray2[]       = "#e3e3e3";
-// static const char col_gray3[]       = "#b9b9b9";
-// static const char col_gray4[]       = "#101010";
-// static const char col_cyan[]        = "#464646";
+static const char grayscale_bg[]       = "#101010";
+static const char grayscale_fg[]       = "#ababab";
+static const char grayscale_gray[]        = "#ababab";
 
 // // Gruvbox
 
@@ -33,12 +31,20 @@ static const char gruvbox_red[]			= "#FF5F5F";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { gruvbox_white, gruvbox_black, gruvbox_black },
-	[SchemeSel]  = { gruvbox_black, gruvbox_cyan,  gruvbox_black},
+	[SchemeNorm] = { grayscale_fg, grayscale_bg, grayscale_gray },
+	[SchemeSel]  = { grayscale_bg, grayscale_fg,  grayscale_gray},
 };
 
 /* tagging */
-static const char *tags[] = { " ", " ", "󰕼 ", " ", " ", " ", "󰘧", " ", " " };
+static const char *tags[] = { 
+	"ヂ",
+	"ネ",
+	"セ",
+	"フ",
+	"ク",
+	"マ",
+	"ル"
+};
 
 static const Rule rules[] = {
 	/* xprop(1):

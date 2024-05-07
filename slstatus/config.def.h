@@ -8,6 +8,18 @@ static const char unknown_str[] = "n/a";
 
 /* maximum output string length */
 #define MAXLEN 2048
+#define GRUVBOX_BLACK		"#1d2021"
+#define GRUVBOX_RED			"#ff5f5f"
+#define GRUVBOX_ORANGE		"#fe8019"
+#define GRUVBOX_YELLOW		"#fabd2f"
+#define GRUVBOX_GREEN		"#b8bb26"
+#define GRUVBOX_CYAN		"#8ec07c"
+#define GRUVBOX_BLUE		"#83a598"
+#define GRUVBOX_MAGENTA		"#d3869b"
+
+#define GRAYSCALE_BG		"#101010"
+#define GRAYSCALE FG		"#e3e3e3"
+#define GRAYSCALE_GRAY		"#ababab"
 
 /*
  * function            description                     argument (example)
@@ -64,12 +76,19 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ wifi_essid, "^b#ff5f5f^^c#1d2021^ 󰤥 : %s ^d^ ", "wlp3s0"},
-	{ wifi_perc, "^b#fe8019^^c#1d2021^ 󰤥 : %s ^d^ ", "wlp3s0"},
-	{ run_command,  "^b#fabd2f^^c#1d2021^ 󰕾 : %s ^d^ ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'"},
-	{ ram_perc, "^b#b8bb26^^c#1d2021^ 󰍛 : %s ^d^ ", NULL},
-	{ netspeed_rx, "^b#8ec07c^^c#1d2021^ ⇅: %s ^d^ ", "wlp3s0"},
-	{ run_command, "^b#83a598^^c#1d2021^   %s ^d^ ",        "~/.software/scripts/elektric_script"},
-	{ datetime, "^b#d3869b^^c#1d2021^ %s ^d^ ", "%d-%b-%y %H-%M" },
+    /* function format          argument */
+    {wifi_essid, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ 󰤥 : %s ^d^ ", "wlp3s0"},
+    {wifi_perc, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ 󰤥 : %s ^d^ ", "wlp3s0"},
+
+    {run_command, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ 󰕾 : %s ^d^ ",
+     "amixer sget Master | tail -1 | awk '{print $5 }' | sed "
+     "'s@\\(\\[\\|\\]\\)@@g'"},
+
+    {ram_perc, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ 󰍛 : %s ^d^ ", NULL},
+    {netspeed_rx, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ ⇅: %s ^d^ ", "wlp3s0"},
+
+    {run_command, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^   %s ^d^ ",
+     "~/.software/scripts/elektric_script"},
+
+    {datetime, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ %s ^d^ ", "%d-%b-%y %H-%M"},
 };
