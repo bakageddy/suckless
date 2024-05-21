@@ -13,11 +13,9 @@ static const char dmenufont[]       = "iosevka:size=12";
 
 // Grayscale Dark
 
-// static const char col_gray1[]       = "#101010";
-// static const char col_gray2[]       = "#e3e3e3";
-// static const char col_gray3[]       = "#b9b9b9";
-// static const char col_gray4[]       = "#101010";
-// static const char col_cyan[]        = "#464646";
+static const char grayscale_bg[]     = "#f7f7f7";
+static const char grayscale_fg[]     = "#14181b";
+static const char grayscale_gray[]   = "#a0a0a0";
 
 // // Gruvbox
 
@@ -31,14 +29,18 @@ static const char gruvbox_yellow[]		= "#FABD2F";
 static const char gruvbox_orange[]		= "#FE8019";
 static const char gruvbox_red[]			= "#FF5F5F";
 
+static const char solarized_black[]		= "#002b36";
+static const char solarized_white[]		= "#839496";
+static const char solarized_magenta[]	= "#d33682";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { gruvbox_white, gruvbox_black, gruvbox_black },
-	[SchemeSel]  = { gruvbox_black, gruvbox_cyan,  gruvbox_black},
+	[SchemeNorm] = { solarized_white, solarized_black, solarized_magenta },
+	[SchemeSel]  = { solarized_white, solarized_black, solarized_magenta },
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", " ", " " };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -75,7 +77,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", gruvbox_black, "-nf", gruvbox_white, "-sb", gruvbox_orange, "-sf", gruvbox_black, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", solarized_white, "-nf", solarized_black, "-sb", solarized_black, "-sf", solarized_white, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *rangercmd[] = {"kitty", "-e", "ranger", NULL};
 static const char *zathuracmd[] = {"zathura", NULL};

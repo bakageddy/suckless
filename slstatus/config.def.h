@@ -63,12 +63,39 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
+
+#define GRAYSCALE_BG "#F7F7F7"
+#define GRAYSCALE_FG "#141414"
+#define GRAYSCALE_GRAY "#A0A0A0"
+
+#define GRUVBOX_BLACK "#1d2021"
+#define GRUVBOX_RED "#fb4934"
+#define GRUVBOX_GREEN "#b8bb26"
+#define GRUVBOX_YELLOW "#fabd2f"
+#define GRUVBOX_BLUE "#83a598"
+#define GRUVBOX_MAGENTA "#d3869b"
+#define GRUVBOX_CYAN "#8ec07c"
+#define GRUVBOX_WHITE "#d4be98"
+#define GRUVBOX_ORANGE "#fe8019"
+
+#define SOLARIZED_BLACK		"#002b36"
+#define SOLARIZED_WHITE		"#839496"
+#define SOLARIZED_RED		"#dc3545"
+#define SOLARIZED_ORANGE	"#cb4b16"
+#define SOLARIZED_YELLOW	"#b58900"
+#define SOLARIZED_GREEN		"#859900"
+#define SOLARIZED_BLUE		"#268bd2"
+#define SOLARIZED_CYAN		"#2aa198"
+#define SOLARIZED_PURPLE	"#6c71c4"
+#define SOLARIZED_PINK		"#d33682"
+
 static const struct arg args[] = {
 	/* function format          argument */
-	{ username, "^b#ff5f5f^^c#1d2021^  : %s ^d^ ", NULL},
-	{ cpu_perc, "^b#fe8019^^c#1d2021^ 🖥 : %s ^d^ ", NULL},
-	{ run_command,  "^b#fabd2f^^c#1d2021^  : %s ^d^ ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'"},
-	{ ram_perc, "^b#b8bb26^^c#1d2021^  : %s ^d^ ", NULL},
-	{ netspeed_rx, "^b#8ec07c^^c#1d2021^ ⇅: %s ^d^ ", "enp2s0"},
-	{ datetime, "^b#83a598^^c#1d2021^ %s ^d^ ", "%d-%b-%y %H-%M" },
+	{ username, "^b" SOLARIZED_RED "^^c" SOLARIZED_BLACK "^  : %s ^d^ ", NULL},
+	{ cpu_perc, "^b" SOLARIZED_ORANGE "^^c" SOLARIZED_BLACK "^ 🖥 : %s ^d^ ", NULL},
+	{ run_command,  "^b" SOLARIZED_YELLOW "^^c" SOLARIZED_BLACK "^  : %s ^d^ ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'"},
+	{ ram_perc, "^b" SOLARIZED_GREEN "^^c" SOLARIZED_BLACK "^  : %s ^d^ ", NULL},
+	{ netspeed_rx, "^b" SOLARIZED_CYAN "^^c" SOLARIZED_BLACK "^ ⇅: %s ^d^ ", "enp2s0"},
+	{ datetime, "^b" SOLARIZED_BLUE "^^c" SOLARIZED_BLACK "^ %s ^d^ ", "%d-%b-%y %H-%M" },
+	{ weather, "^b" SOLARIZED_PURPLE "^^c" SOLARIZED_BLACK "^ %s ^d^ ", NULL },
 };
