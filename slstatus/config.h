@@ -77,18 +77,17 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
     /* function format          argument */
-    {wifi_essid, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ 󰤥 : %s ^d^ ", "wlp3s0"},
-    {wifi_perc, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ 󰤥 : %s ^d^ ", "wlp3s0"},
-
-    {run_command, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ 󰕾 : %s ^d^ ",
+    {wifi_essid, "^b" GRUVBOX_RED "^^c" GRUVBOX_BLACK "^ 󰤥 : %s ^d^ ", "wlp3s0"},
+    {wifi_perc, "^b" GRUVBOX_ORANGE "^^c" GRUVBOX_BLACK "^ 󰤥 : %s ^d^ ", "wlp3s0"},
+    {run_command, "^b" GRUVBOX_YELLOW "^^c" GRUVBOX_BLACK "^ 󰕾 : %s ^d^ ",
      "amixer sget Master | tail -1 | awk '{print $5 }' | sed "
      "'s@\\(\\[\\|\\]\\)@@g'"},
 
-    {ram_perc, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ 󰍛 : %s ^d^ ", NULL},
-    {netspeed_rx, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ ⇅: %s ^d^ ", "wlp3s0"},
+    {ram_perc, "^b" GRUVBOX_GREEN "^^c" GRUVBOX_BLACK "^ 󰍛 : %s ^d^ ", NULL},
+    {netspeed_rx, "^b" GRUVBOX_CYAN "^^c" GRUVBOX_BLACK "^ ⇅: %s ^d^ ", "wlp3s0"},
 
-    {run_command, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^   %s ^d^ ",
+    {run_command, "^b" GRUVBOX_BLUE "^^c" GRUVBOX_BLACK "^   %s ^d^ ",
      "~/.software/scripts/elektric_script"},
 
-    {datetime, "^b" GRAYSCALE_GRAY "^^c" GRAYSCALE_BG "^ %s ^d^ ", "%d-%b-%y %H-%M"},
+    {datetime, "^b" GRUVBOX_MAGENTA "^^c" GRUVBOX_BLACK "^ %s ^d^ ", "%d-%b-%y %H-%M"},
 };

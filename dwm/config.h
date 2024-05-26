@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 #include <X11/XF86keysym.h>
+#include <stddef.h>
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -31,8 +32,8 @@ static const char gruvbox_red[]			= "#FF5F5F";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { grayscale_fg, grayscale_bg, grayscale_gray },
-	[SchemeSel]  = { grayscale_bg, grayscale_fg,  grayscale_gray},
+	[SchemeNorm] = { gruvbox_white, gruvbox_black, gruvbox_black},
+	[SchemeSel]  = { gruvbox_white, gruvbox_black, gruvbox_black},
 };
 
 /* tagging */
@@ -67,6 +68,8 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -83,11 +86,11 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", gruvbox_black, "-nf", gruvbox_white, "-sb", gruvbox_orange, "-sf", gruvbox_black, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
-static const char *rangercmd[] = {"kitty", "-e", "ranger", NULL};
+static const char *lfcmd[] = {"kitty", "-e", "lf", NULL};
 static const char *zathuracmd[] = {"zathura", NULL};
 static const char *browsercmd[] = {"firefox", NULL};
 static const char *increase_vol[] = {"amixer", "set", "Master", "5%+", NULL};
-static const char *decrease_vol[] = {"amixer", "set", "Master", "5%+", NULL};
+static const char *decrease_vol[] = {"amixer", "set", "Master", "5%-", NULL};
 static const char *mute[] = {"amixer", "set", "Master", "toggle", NULL};
 static const char *screenshotcmd[] = {"/bin/sh", "-c", "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T.png", NULL};
 static const char *decrease_light[] = {"xbacklight", "-5", NULL};
@@ -110,6 +113,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -133,7 +138,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	// User defined remaps
 	{ MODKEY | ShiftMask,           XK_b,		spawn,         {.v = browsercmd}},
-	{ MODKEY | ShiftMask,			XK_e,		spawn,		   {.v = rangercmd}},
+	{ MODKEY | ShiftMask,			XK_e,		spawn,		   {.v = lfcmd}},
 	{ MODKEY | ShiftMask,			XK_z,		spawn,		   {.v = zathuracmd}},
 
 	{0,								XF86XK_AudioLowerVolume, spawn, {.v = decrease_vol}},
