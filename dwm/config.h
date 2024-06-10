@@ -30,10 +30,14 @@ static const char gruvbox_yellow[]		= "#FABD2F";
 static const char gruvbox_orange[]		= "#FE8019";
 static const char gruvbox_red[]			= "#FF5F5F";
 
+static const char iceberg_bg[]			= "#161821";
+static const char iceberg_fg[]			= "#c6c8d1";
+static const char iceberg_grey[]		= "#a093c7";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { gruvbox_white, gruvbox_black, gruvbox_black},
-	[SchemeSel]  = { gruvbox_white, gruvbox_black, gruvbox_black},
+	[SchemeNorm] = { iceberg_fg, iceberg_bg, iceberg_bg},
+	[SchemeSel]  = { iceberg_fg, iceberg_bg, iceberg_bg},
 };
 
 /* tagging */
@@ -84,7 +88,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", gruvbox_black, "-nf", gruvbox_white, "-sb", gruvbox_orange, "-sf", gruvbox_black, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", iceberg_bg, "-nf", iceberg_fg, "-sb", iceberg_grey, "-sf", iceberg_bg, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *lfcmd[] = {"kitty", "-e", "lf", NULL};
 static const char *zathuracmd[] = {"zathura", NULL};
