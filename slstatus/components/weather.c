@@ -8,7 +8,7 @@
 #include "../util.h"
 
 const char *weather(const char *fmt) {
-	const char url[] = "wttr.in";
+	const char url[] = "http://www.wttr.in";
 	struct addrinfo req = {0}, *payload = NULL;
 	req.ai_socktype = SOCK_STREAM;
 	req.ai_family = AF_INET;

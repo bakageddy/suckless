@@ -33,10 +33,14 @@ static const char solarized_black[]		= "#002b36";
 static const char solarized_white[]		= "#839496";
 static const char solarized_magenta[]	= "#d33682";
 
+static const char dragon_black[]        = "#181616";
+static const char dragon_white[]		= "#c5c9c5";
+static const char dragon_orange[]		= "#c4746e";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { solarized_white, solarized_black, solarized_magenta },
-	[SchemeSel]  = { solarized_white, solarized_black, solarized_magenta },
+	[SchemeNorm] = { dragon_white, dragon_black, dragon_orange },
+	[SchemeSel]  = { dragon_white, dragon_black, dragon_orange },
 };
 
 /* tagging */
@@ -77,10 +81,11 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", solarized_white, "-nf", solarized_black, "-sb", solarized_black, "-sf", solarized_white, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", dragon_white, "-nf", dragon_black, "-sb", dragon_orange, "-sf", dragon_black, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *rangercmd[] = {"kitty", "-e", "ranger", NULL};
 static const char *zathuracmd[] = {"zathura", NULL};
+static const char *nvimcmd[] = {"kitty", "-e", "nvim", NULL};
 static const char *browsercmd[] = {"firefox", NULL};
 static const char *increase_vol[] = {"amixer", "set", "Master", "5%+", NULL};
 static const char *decrease_vol[] = {"amixer", "set", "Master", "5%-", NULL};
@@ -131,6 +136,7 @@ static const Key keys[] = {
 	{ MODKEY | ShiftMask,           XK_b,		spawn,         {.v = browsercmd}},
 	{ MODKEY | ShiftMask,			XK_e,		spawn,		   {.v = rangercmd}},
 	{ MODKEY | ShiftMask,			XK_z,		spawn,		   {.v = zathuracmd}},
+	{ MODKEY | ShiftMask,			XK_n,		spawn,		   {.v = nvimcmd}},
 
 	{0,								XF86XK_AudioLowerVolume, spawn, {.v = decrease_vol}},
 	{0,								XF86XK_AudioRaiseVolume, spawn, {.v = increase_vol}},

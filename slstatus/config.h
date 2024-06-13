@@ -89,13 +89,20 @@ static const char unknown_str[] = "n/a";
 #define SOLARIZED_PURPLE	"#6c71c4"
 #define SOLARIZED_PINK		"#d33682"
 
+#define DRAGON_RED          "#e46876"		
+#define DRAGON_ORANGE		"#c4746e"
+#define DRAGON_YELLOW		"#b5917b"
+#define DRAGON_GREEN		"#8a9a7b"
+#define DRAGON_CYAN			"#7aa89f"
+#define DRAGON_BLUE			"#8ea4a2"
+#define DRAGON_MAGENTA		"#938aa9"
+
 static const struct arg args[] = {
 	/* function format          argument */
-	{ username, "^b" SOLARIZED_RED "^^c" SOLARIZED_BLACK "^  : %s ^d^ ", NULL},
-	{ cpu_perc, "^b" SOLARIZED_ORANGE "^^c" SOLARIZED_BLACK "^ 🖥 : %s ^d^ ", NULL},
-	{ run_command,  "^b" SOLARIZED_YELLOW "^^c" SOLARIZED_BLACK "^  : %s ^d^ ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'"},
-	{ ram_perc, "^b" SOLARIZED_GREEN "^^c" SOLARIZED_BLACK "^  : %s ^d^ ", NULL},
-	{ netspeed_rx, "^b" SOLARIZED_CYAN "^^c" SOLARIZED_BLACK "^ ⇅: %s ^d^ ", "enp2s0"},
-	{ datetime, "^b" SOLARIZED_BLUE "^^c" SOLARIZED_BLACK "^ %s ^d^ ", "%d-%b-%y %H-%M" },
-	{ weather, "^b" SOLARIZED_PURPLE "^^c" SOLARIZED_BLACK "^ %s ^d^ ", NULL },
+	{ username, "^c" DRAGON_RED "^  : %s ^d^ ", NULL},
+	{ cpu_perc, "^c" DRAGON_ORANGE "^ 🖥 : %s ^d^ ", NULL},
+	{ run_command,  "^c" DRAGON_YELLOW  "^  : %s ^d^ ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'"},
+	{ ram_perc, "^c" DRAGON_GREEN  "^  : %s ^d^ ", NULL},
+	{ netspeed_rx, "^c" DRAGON_CYAN  "^ ⇅: %s ^d^ ", "enp2s0"},
+	{ datetime, "^c" DRAGON_BLUE  "^ %s ^d^ ", "%d-%b-%y %H-%M" },
 };
