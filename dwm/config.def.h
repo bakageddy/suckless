@@ -9,8 +9,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappx     = 10;        /* gaps between windows */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "iosevka:size=12" };
-static const char dmenufont[]       = "iosevka:size=12";
+static const char *fonts[]          = { "Iosevka:size=12" };
+static const char dmenufont[]       = "Iosevka:size=12";
 
 // Grayscale Dark
 
@@ -20,8 +20,8 @@ static const char grayscale_gray[]        = "#ababab";
 
 // // Gruvbox
 
-static const char gruvbox_black[]		= "#1D2021";
-static const char gruvbox_white[]		= "#D4BE98";
+static const char gruvbox_bg[]		= "#1D2021";
+static const char gruvbox_fg[]		= "#D4BE98";
 static const char gruvbox_violet[]		= "#D3869B";
 static const char gruvbox_blue[]		= "#83A598";
 static const char gruvbox_cyan[]		= "#8EC07C";
@@ -36,8 +36,8 @@ static const char iceberg_grey[]		= "#a093c7";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { iceberg_fg, iceberg_bg, iceberg_bg},
-	[SchemeSel]  = { iceberg_fg, iceberg_bg, iceberg_bg},
+	[SchemeNorm] = { gruvbox_fg, gruvbox_bg, gruvbox_bg},
+	[SchemeSel]  = { gruvbox_fg, gruvbox_bg, gruvbox_bg},
 };
 
 /* tagging */
@@ -88,9 +88,11 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", iceberg_bg, "-nf", iceberg_fg, "-sb", iceberg_grey, "-sf", iceberg_bg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", gruvbox_bg, "-nf", gruvbox_fg, "-sb", gruvbox_red, "-sf", gruvbox_bg, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
-static const char *lfcmd[] = {"kitty", "-e", "lf", NULL};
+static const char *altTermCmd[] = { "/bin/sh", "-c", "pidof urxvtd && urxvtc", NULL};
+static const char *yazicmd[] = {"kitty", "-e", "yazi", NULL};
+static const char *emacscmd[] = {"emacs", "--no-x-resources", NULL};
 static const char *zathuracmd[] = {"zathura", NULL};
 static const char *browsercmd[] = {"firefox", NULL};
 static const char *increase_vol[] = {"amixer", "set", "Master", "5%+", NULL};
@@ -104,6 +106,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY | ShiftMask,           XK_Return, spawn,          {.v = altTermCmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -142,7 +145,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	// User defined remaps
 	{ MODKEY | ShiftMask,           XK_b,		spawn,         {.v = browsercmd}},
-	{ MODKEY | ShiftMask,			XK_e,		spawn,		   {.v = lfcmd}},
+	{ MODKEY | ShiftMask,			XK_f,		spawn,		   {.v = yazicmd}},
+	{ MODKEY | ShiftMask,			XK_e,		spawn,		   {.v = emacscmd}},
 	{ MODKEY | ShiftMask,			XK_z,		spawn,		   {.v = zathuracmd}},
 
 	{0,								XF86XK_AudioLowerVolume, spawn, {.v = decrease_vol}},

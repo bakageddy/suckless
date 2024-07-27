@@ -16,6 +16,7 @@ static const char unknown_str[] = "n/a";
 #define GRUVBOX_CYAN		"#8ec07c"
 #define GRUVBOX_BLUE		"#83a598"
 #define GRUVBOX_MAGENTA		"#d3869b"
+#define GRUVBOX_WHITE		"#d4be98"
 
 #define GRAYSCALE_BG		"#101010"
 #define GRAYSCALE FG		"#e3e3e3"
@@ -87,17 +88,17 @@ static const char unknown_str[] = "n/a";
 
 static const struct arg args[] = {
     /* function format          argument */
-    {wifi_essid, "^b" ICEBERG_WHITE "^^c" ICEBERG_BLACK "^ 󰤥 : %s ^d^ ", "wlp3s0"},
-    {wifi_perc, "^b" ICEBERG_RED "^^c" ICEBERG_BLACK "^ 󰤥 : %s ^d^ ", "wlp3s0"},
-    {run_command, "^b" ICEBERG_ORANGE "^^c" ICEBERG_BLACK "^ 󰕾 : %s ^d^ ",
+    {wifi_essid, "^b" GRUVBOX_WHITE "^^c" GRUVBOX_BLACK "^ 󰤥 : %s ^d^ ", "wlp3s0"},
+    {wifi_perc, "^b" GRUVBOX_RED "^^c" GRUVBOX_BLACK "^ 󰤥 : %s ^d^ ", "wlp3s0"},
+    {run_command, "^b" GRUVBOX_ORANGE "^^c" GRUVBOX_BLACK "^ 󰕾 : %s ^d^ ",
      "amixer sget Master | tail -1 | awk '{print $5 }' | sed "
      "'s@\\(\\[\\|\\]\\)@@g'"},
 
-    {ram_perc, "^b" ICEBERG_GREEN "^^c" ICEBERG_BLACK "^ 󰍛 : %s ^d^ ", NULL},
-    {netspeed_rx, "^b" ICEBERG_CYAN "^^c" ICEBERG_BLACK "^ ⇅: %s ^d^ ", "wlp3s0"},
+    {ram_perc, "^b" GRUVBOX_GREEN "^^c" GRUVBOX_BLACK "^ 󰍛 : %s ^d^ ", NULL},
+    {netspeed_rx, "^b" GRUVBOX_CYAN "^^c" GRUVBOX_BLACK "^ ⇅: %s ^d^ ", "wlp3s0"},
 
-    {run_command, "^b" ICEBERG_BLUE "^^c" ICEBERG_BLACK "^   %s ^d^ ",
+    {run_command, "^b" GRUVBOX_BLUE "^^c" GRUVBOX_BLACK "^   %s ^d^ ",
      "~/.software/scripts/elektric_script"},
 
-    {datetime, "^b" ICEBERG_MAGENTA "^^c" ICEBERG_BLACK "^ %s ^d^ ", "%d-%b-%y %H-%M"},
+    {datetime, "^b" GRUVBOX_MAGENTA "^^c" GRUVBOX_BLACK "^ %s ^d^ ", "%d-%b-%y %H-%M"},
 };
